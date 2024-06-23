@@ -8,13 +8,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Conectar a MongoDB
-const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://jesadc571:Fv7ihXrMHrriFizh@clustershoplive.ur6suv6.mongodb.net/?retryWrites=true&w=majority';
+const mongoUri = process.env.MONGODB_URI || 'your-mongodb-connection-string';
 mongoose.connect(mongoUri)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
 
-// Rutas
 app.use('/orders', orderRoutes);
 
 const PORT = process.env.PORT || 5000;
