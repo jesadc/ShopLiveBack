@@ -5,10 +5,14 @@ import orderRoutes from './routes/orders';
 
 const app = express();
 
-app.use(cors());
+// Configurar CORS
+app.use(cors({
+  origin: 'https://shoplivemx.netlify.app', // Permitir solicitudes desde tu frontend en Netlify
+}));
+
 app.use(express.json());
 
-const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://jesadc571:Fv7ihXrMHrriFizh@clustershoplive.ur6suv6.mongodb.net/?retryWrites=true&w=majority';
+const mongoUri = process.env.MONGODB_URI || 'your-mongodb-connection-string';
 mongoose.connect(mongoUri)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
