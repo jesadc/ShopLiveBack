@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const mongoUri = process.env.MONGODB_URI || 'your-mongodb-connection-string';
+const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://jesadc571:Fv7ihXrMHrriFizh@clustershoplive.ur6suv6.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoUri)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
