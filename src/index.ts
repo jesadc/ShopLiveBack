@@ -5,10 +5,16 @@ import orderRoutes from './routes/orders';
 
 const app = express();
 
+const corsOptions = {
+  origin: 'https://shoplivemx.netlify.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
 // Configurar CORS
-app.use(cors({
-  origin: 'https://shoplivemx.netlify.app', // Permitir solicitudes desde tu frontend en Netlify
-}));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Habilitar preflight requests para todas las rutas
 
 app.use(express.json());
 
